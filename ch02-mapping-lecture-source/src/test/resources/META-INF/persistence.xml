@@ -5,6 +5,7 @@
         <class>com.ohgiraffers.section01.entity.Member</class>
         <class>com.ohgiraffers.section02.column.Member</class>
         <class>com.ohgiraffers.section03.primarykey.subsection01.identify.Member</class>
+        <class>com.ohgiraffers.section03.primarykey.subsection02.table.Member</class>
         <properties>
             <!-- DB 연결 정보 -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
