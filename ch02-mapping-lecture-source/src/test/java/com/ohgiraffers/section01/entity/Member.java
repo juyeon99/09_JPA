@@ -16,8 +16,8 @@ import java.time.LocalDate;
  * 생략하면 자동으로 클래스 이름을 엔티티 명으로 사용한다.
  */
 
-@Entity(name="member_section01")    // entity명은 지정하는 경우 많지 X
-@Table(name = "tbl_member_section01")   // table은 예약어들과 이름이 겹치는 경우도 있어서 앞에 tbl_을 붙이는게 좋음
+//@Entity(name="member_section01")    // entity명은 지정하는 경우 많지 X
+@Table(name="tbl_member_section01")   // table은 예약어들과 이름이 겹치는 경우도 있어서 앞에 tbl_을 붙이는게 좋음
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

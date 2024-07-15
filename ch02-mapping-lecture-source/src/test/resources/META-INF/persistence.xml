@@ -3,6 +3,8 @@
     <!-- 엔티티 매니저 팩토리를 식별하기 위한 이름 설정 -->
     <persistence-unit name="jpatest">
         <class>com.ohgiraffers.section01.entity.Member</class>
+        <class>com.ohgiraffers.section02.column.Member</class>
+        <class>com.ohgiraffers.section03.primarykey.subsection01.identify.Member</class>
         <properties>
             <!-- DB 연결 정보 -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
@@ -15,8 +17,8 @@
             <property name="hibernate.format_sql" value="true"/>
             
             <!-- DML 구문 수행시 자동으로 스키마 생성 -->
-<!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
         </properties>
     </persistence-unit>
 </persistence>
