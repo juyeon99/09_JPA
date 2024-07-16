@@ -9,6 +9,7 @@
         <class>com.ohgiraffers.section04.enumtype.Member</class>
         <class>com.ohgiraffers.section05.access.subsection01.field.Member</class>
         <class>com.ohgiraffers.section05.access.subsection02.property.Member</class>
+        <class>com.ohgiraffers.section06.compositekey.subsection01.embedded.Member</class>
         <properties>
             <!-- DB 연결 정보 -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

@@ -2,7 +2,7 @@ package com.ohgiraffers.section05.access.subsection02.property;
 
 import jakarta.persistence.*;
 
-@Entity(name="member_section05_sub02")
+//@Entity(name="member_section05_sub02")
 @Table(name="tbl_member_section05_sub02")
 @Access(AccessType.PROPERTY)
 /*
