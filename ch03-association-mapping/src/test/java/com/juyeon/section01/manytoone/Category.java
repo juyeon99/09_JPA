@@ -1,4 +1,4 @@
-package com.ohgiraffers.section01.manytoone;
+package com.juyeon.section01.manytoone;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
