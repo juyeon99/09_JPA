@@ -10,8 +10,11 @@
 <!--        <class>com.juyeon.section03.projection.Category</class>-->
 <!--        <class>com.juyeon.section04.paging.Menu</class>-->
 <!--        <class>com.juyeon.section05.groupfunction.Menu</class>-->
-        <class>com.juyeon.section06.join.Menu</class>
-        <class>com.juyeon.section06.join.Category</class>
+<!--        <class>com.juyeon.section06.join.Menu</class>-->
+<!--        <class>com.juyeon.section06.join.Category</class>-->
+<!--        <class>com.juyeon.section07.subquery.Menu</class>-->
+<!--        <class>com.juyeon.section07.subquery.Category</class>-->
+        <class>com.juyeon.section08.namedquery.Menu</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/menudb"/>
