@@ -3,13 +3,15 @@
     <persistence-unit name="jpatest">
 <!--        <class>com.juyeon.section01.simple.Menu</class>-->
 <!--        <class>com.juyeon.section02.parameter.Menu</class>-->
-        <class>com.juyeon.section03.projection.Menu</class>
-        <class>com.juyeon.section03.projection.BidirectionMenu</class>
-        <class>com.juyeon.section03.projection.BidirectionCategory</class>
-        <class>com.juyeon.section03.projection.EmbeddedMenu</class>
-        <class>com.juyeon.section03.projection.Category</class>
-        <class>com.juyeon.section04.paging.Menu</class>
-        <class>com.juyeon.section05.groupfunction.Menu</class>
+<!--        <class>com.juyeon.section03.projection.Menu</class>-->
+<!--        <class>com.juyeon.section03.projection.BidirectionMenu</class>-->
+<!--        <class>com.juyeon.section03.projection.BidirectionCategory</class>-->
+<!--        <class>com.juyeon.section03.projection.EmbeddedMenu</class>-->
+<!--        <class>com.juyeon.section03.projection.Category</class>-->
+<!--        <class>com.juyeon.section04.paging.Menu</class>-->
+<!--        <class>com.juyeon.section05.groupfunction.Menu</class>-->
+        <class>com.juyeon.section06.join.Menu</class>
+        <class>com.juyeon.section06.join.Category</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/menudb"/>
