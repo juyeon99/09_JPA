@@ -91,12 +91,51 @@ public class MenuController {
     public void registerPage() {}
 
     // @GetMapping + @ResponseBody = RestController
-//    @GetMapping(value = "category", produces = "application/json; charset=utf-8")
-//    @ResponseBody   // 리턴한 값이 json형식으로 response body에 담김
-//    public List<CategoryDTO> categoryPage(){
-//        List<CategoryDTO> categoryList = menuService.findAllCategory();
-//        log.info("categoryList ============ {}", categoryList);
-//
-//        return categoryList;
-//    }
+    @GetMapping(value = "category", produces = "application/json; charset=utf-8")
+    @ResponseBody   // 리턴한 값이 json형식으로 response body에 담김
+    public List<CategoryDTO> categoryPage(){
+        List<CategoryDTO> categoryList = menuService.findAllCategory();
+        log.info("categoryList ============ {}", categoryList);
+
+        return categoryList;
+    }
+
+    @PostMapping("/register")
+    public String registerNewMenu(@ModelAttribute MenuDTO newMenu) {
+        log.info("newMenu =============== > {}", newMenu);
+        menuService.registerNewMenu(newMenu);
+
+        return "redirect:/menu/list";
+    }
+
+
+    @GetMapping("/modify/{menuCode}")
+    public String modifyPage(@PathVariable int menuCode, Model model) {
+        log.info("menuCode = {}", menuCode);
+
+        // 메뉴코드로 메뉴 조회해오는 기능
+        MenuDTO menu = menuService.findMenuByCode(menuCode);
+        model.addAttribute("menu", menu);
+
+        return "menu/modify";
+    }
+
+
+    @PostMapping("/modify")
+    // ModelAttribute 생략가능
+    public String modifyMenu(MenuDTO modifyMenu) {
+        log.info("modifyMenu =========== {}", modifyMenu);
+        menuService.modifyMenu(modifyMenu);
+
+        return "redirect:/menu/modify/" + modifyMenu.getMenuCode();
+    }
+
+    @GetMapping("/delete")
+    public void deletePage(){}
+
+    @PostMapping("/delete")
+    public String deleteMenu(@RequestParam Integer menuCode) {
+        menuService.deleteMenu(menuCode);
+        return "redirect:/menu/list";
+    }
 }

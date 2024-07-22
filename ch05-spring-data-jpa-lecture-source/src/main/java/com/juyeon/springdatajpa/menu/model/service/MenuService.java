@@ -6,6 +6,7 @@ import com.juyeon.springdatajpa.menu.model.entity.Category;
 import com.juyeon.springdatajpa.menu.model.entity.Menu;
 import com.juyeon.springdatajpa.menu.model.repository.CategoryRepository;
 import com.juyeon.springdatajpa.menu.model.repository.MenuRepository;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -84,8 +85,56 @@ public class MenuService {
                 .collect(Collectors.toList());
     }
 
-//    public List<CategoryDTO> findAllCategory() {
-//        List<Category> categoryList = categoryRepository.findAllCategory();
-//
-//    }
+    public List<CategoryDTO> findAllCategory() {
+        //        List<Category> categoryList = categoryRepository.findAll();
+
+// JPQL
+//        List<Category> categoryList = categoryRepository.findAllCategoryByJPQL();
+
+        // NativeQuery
+        List<Category> categoryList = categoryRepository.findAllCategoryByNativeQuery();
+
+        return categoryList.stream()
+                .map(category -> modelMapper.map(category, CategoryDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void registerNewMenu(MenuDTO newMenu) {
+
+        Menu menu = modelMapper.map(newMenu, Menu.class);
+
+        // Builder 적용
+//        Menu menu = new Menu().builder()
+//                .menuName(newMenu.getMenuName())
+//                .menuPrice(newMenu.getMenuPrice())
+//                .categoryCode(newMenu.getCategoryCode())
+//                .orderableStatus(newMenu.getOrderableStatus())
+//                .build();
+
+        menuRepository.save(menu);
+    }
+
+    @Transactional
+    public void modifyMenu(MenuDTO modifyMenu) {
+
+        // modifyMenu -> 비영속
+        // 영속
+        log.info("modifyMenu ===========> {}", modifyMenu);
+        Menu foundMenu = menuRepository.findById(modifyMenu.getMenuCode())
+                .orElseThrow(() -> new IllegalArgumentException("Menu not found"));
+
+        foundMenu.setMenuName(modifyMenu.getMenuName());
+
+//        foundMenu = foundMenu.toBuilder()
+//                    .menuName(modifyMenu.getMenuName())
+//                    .build();
+
+        log.info("foundMenu ==========> {}", foundMenu);
+    }
+
+    @Transactional
+    public void deleteMenu(Integer menuCode) {
+        menuRepository.deleteById(menuCode);
+    }
 }
